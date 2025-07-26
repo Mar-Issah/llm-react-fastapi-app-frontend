@@ -47,6 +47,14 @@ body {
   margin-bottom: 0;
 }
 
+.authentication-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .main-header-content {
   display: flex;
   flex-direction: row;
