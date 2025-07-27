@@ -10,12 +10,15 @@ const Layout = () => {
           <p className='main-title'>Challenge Generator</p>
           <nav className='main-nav'>
             <SignedIn>
-              <Link className='main-nav-link' to='/'>
-                Generate Challenge
-              </Link>
-              <Link className='main-nav-link' to='/history'>
-                History
-              </Link>
+              <div className='main-nav-links'>
+                <Link className='main-nav-link' to='/'>
+                  Generate Challenge
+                </Link>
+                <Link className='main-nav-link' to='/history'>
+                  History
+                </Link>
+              </div>
+
               <UserButton />
             </SignedIn>
           </nav>

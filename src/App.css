@@ -312,3 +312,36 @@ button:focus-visible {
   font-weight: 500;
   letter-spacing: 1px;
 }
+
+/* Responsive design for small and medium screens */
+@media (max-width: 768px) {
+  .main-title{
+    font-size: 1rem;
+  }
+ .challenge-generator-container, .main-nav-links{
+    display: flex;
+    flex-direction: column;
+  }
+   .challenge-container * {
+    font-size: 0.9rem;
+  }
+  .main-content{
+    margin: 1.2rem auto 0 auto;
+  }
+
+  .challenge-title {
+    font-size: 1.2rem;
+  }
+
+  .generate-button {
+    font-size: 1rem;
+  }
+
+  .difficulty-selector select {
+    font-size: 0.9rem;
+  }
+
+  .option {
+    font-size: 0.85rem;
+  }
+}
