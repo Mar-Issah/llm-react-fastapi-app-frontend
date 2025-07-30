@@ -7,7 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 const ChallengeGenerator = () => {
   const [challenge, setChallenge] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
   const [difficulty, setDifficulty] = useState('easy');
   const [quota, setQuota] = useState(null);
   const { makeRequest } = useApi();
@@ -28,13 +27,13 @@ const ChallengeGenerator = () => {
 
   const generateChallenge = async () => {
     setIsLoading(true);
-    // setError(null);
-
     try {
+      setChallenge(null); // Clear previous challenge before generating new one
       const data = await makeRequest('generate-challenge', {
         method: 'POST',
         body: JSON.stringify({ difficulty }),
       });
+      console.log('CHALLENGE', data);
       setChallenge(data);
       fetchQuota();
     } catch (err) {
@@ -46,7 +45,6 @@ const ChallengeGenerator = () => {
   };
 
   // This function is used to get the next reset time for the quota.
-
   const getNextResetTime = () => {
     if (!quota?.last_reset_data) return null;
     const resetDate = new Date(quota.last_reset_data);
