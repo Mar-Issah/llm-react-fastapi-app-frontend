@@ -21,7 +21,8 @@ const ChallengeHistory = () => {
     try {
       const data = await makeRequest('my-history');
       console.log(data);
-      setHistory(data.challenges);
+      // Show the most recent challenge on top by reversing the array
+      setHistory([...data.challenges].reverse());
     } catch (err) {
       setError(err);
       toast.error(err.message || '❌ Failed to load history.');

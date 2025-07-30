@@ -46,8 +46,8 @@ const ChallengeGenerator = () => {
 
   // This function is used to get the next reset time for the quota.
   const getNextResetTime = () => {
-    if (!quota?.last_reset_data) return null;
-    const resetDate = new Date(quota.last_reset_data);
+    if (!quota?.last_reset_date) return null;
+    const resetDate = new Date(quota?.last_reset_date);
     // we are getting the prev reset date and adding 24 hrs to it.
     resetDate.setHours(resetDate.getHours() + 24);
     return resetDate;
