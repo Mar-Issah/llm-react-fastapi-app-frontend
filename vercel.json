@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",        // Matches every path requested (wildcard regex)
-      "destination": "/index.html" // Redirects them all to index.html
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
