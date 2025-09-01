@@ -1,15 +1,22 @@
 import 'react';
-import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/clerk-react';
 import { Outlet, Link, Navigate } from 'react-router-dom';
 
 const Layout = () => {
+  const { user, isLoaded } = useUser();
+
   return (
     <div className='main-layout'>
       <header className='main-header'>
         <div className='main-header-content'>
-          <p className='main-title'>Challenge Generator</p>
+          <Link to='/' className='main-title-link'>
+            <p className='main-title'>Challenge Generator</p>
+          </Link>
           <nav className='main-nav'>
             <SignedIn>
+              {isLoaded && user && (
+                <div className='welcome-message'>Welcome, {user.firstName || user.username || 'User'}!</div>
+              )}
               <div className='main-nav-links'>
                 <Link className='main-nav-link' to='/'>
                   Generate Challenge

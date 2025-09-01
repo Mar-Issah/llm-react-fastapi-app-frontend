@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AuthenticationPage from './auth/AuthenticationPage';
 import Layout from './layout/Layout';
 import ClerkProviderWrapper from './auth/ClerkProviderWrapper';
@@ -16,6 +16,8 @@ function App() {
         <Route element={<Layout />}>
           <Route path='/' element={<ChallengeGenerator />} />
           <Route path='/history' element={<ChallengeHistory />} />
+          {/* Catch-all route for invalid URLs - redirect to homepage */}
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
       </Routes>
     </ClerkProviderWrapper>
