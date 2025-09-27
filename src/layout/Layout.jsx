@@ -1,6 +1,6 @@
 import 'react';
 import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/clerk-react';
-import { Outlet, Link, Navigate } from 'react-router-dom';
+import { Outlet, NavLink , Navigate } from 'react-router-dom';
 
 const Layout = () => {
   const { user, isLoaded } = useUser();
@@ -9,21 +9,21 @@ const Layout = () => {
     <div className='main-layout'>
       <header className='main-header'>
         <div className='main-header-content'>
-          <Link to='/' className='main-title-link'>
+          <NavLink  to='/' className='main-title-link'>
             <p className='main-title'>Challenge Generator</p>
-          </Link>
+          </NavLink >
           <nav className='main-nav'>
             <SignedIn>
               {isLoaded && user && (
                 <div className='welcome-message'>Welcome, {user.firstName || user.username || 'User'}!</div>
               )}
               <div className='main-nav-links'>
-                <Link className='main-nav-link' to='/'>
+                <NavLink  className='main-nav-link' to='/'>
                   Generate Challenge
-                </Link>
-                <Link className='main-nav-link' to='/history'>
+                </NavLink >
+                <NavLink  className='main-nav-link' to='/history'>
                   History
-                </Link>
+                </NavLink >
               </div>
 
               <UserButton />
